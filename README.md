@@ -1,59 +1,259 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🌐 Sistem Informasi Manajemen Tagihan Internet Berbasis Web
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-11-red)
+![PHP](https://img.shields.io/badge/PHP-8.2-blue)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-## About Laravel
+## 👨‍💻 Identitas Developer
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+| Field | Detail |
+|-------|--------|
+| **Nama** | Mohammad Imam |
+| **GitHub** | [@hdmax25](https://github.com/hdmax25) |
+| **Mata Kuliah** | Pemrograman Web Fullstack |
+| **Event** | WebExpo WPUNIPMA #5 |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📌 Deskripsi Proyek
 
-## Learning Laravel
+Sistem backend berbasis **RESTful API** untuk mengelola layanan internet skala kecil (RT/RW Net / ISP Lokal). Sistem ini menyelesaikan masalah pengelolaan data operasional layanan internet yang selama ini dilakukan secara manual.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🔍 Studi Kasus
+Pengelolaan data operasional layanan internet seperti:
+- Mencatat identitas pelanggan (Romi, Wahyu, Eko, Vendy, Dani)
+- Mengatur pilihan paket internet / bandwidth
+- Melacak status pembayaran tagihan bulanan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🛠️ Teknologi yang Digunakan
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Teknologi | Versi | Fungsi |
+|-----------|-------|--------|
+| Laravel | 11 | Backend Framework (PHP) |
+| PHP | 8.2 | Bahasa Pemrograman |
+| MySQL | 8.0 | Database |
+| Eloquent ORM | - | Interaksi Database |
+| RESTful API | - | Komunikasi Data (JSON) |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## ✨ Fitur Utama
 
-## Contributing
+- ✅ **CRUD Pelanggan** — Tambah, lihat, update, hapus data pelanggan
+- ✅ **CRUD Paket Internet** — Kelola paket bandwidth dan harga
+- ✅ **CRUD Tagihan** — Catat dan lacak tagihan bulanan pelanggan
+- ✅ **Status Pembayaran** — Lacak status `paid` / `unpaid`
+- ✅ **Relasi Data** — Data tagihan otomatis menyertakan info pelanggan & paket
+- ✅ **Validasi Input** — Validasi otomatis pada setiap request
+- ✅ **Response JSON** — Semua response dalam format JSON terstruktur
+- ✅ **Database Seeder** — Data dummy siap pakai
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 📁 Struktur Folder
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```
+tagihan-internet/
+├── app/
+│   ├── Http/
+│   │   └── Controllers/
+│   │       ├── CustomerController.php  ← CRUD Pelanggan
+│   │       ├── PackageController.php   ← CRUD Paket
+│   │       └── BillController.php      ← CRUD Tagihan
+│   └── Models/
+│       ├── Customer.php    ← Model Pelanggan
+│       ├── Package.php     ← Model Paket
+│       └── Bill.php        ← Model Tagihan
+├── database/
+│   ├── migrations/
+│   │   ├── create_customers_table.php  ← Struktur tabel pelanggan
+│   │   ├── create_packages_table.php   ← Struktur tabel paket
+│   │   └── create_bills_table.php      ← Struktur tabel tagihan
+│   └── seeders/
+│       ├── CustomerSeeder.php  ← Data dummy pelanggan
+│       ├── PackageSeeder.php   ← Data dummy paket
+│       ├── BillSeeder.php      ← Data dummy tagihan
+│       └── DatabaseSeeder.php  ← Main seeder
+└── routes/
+    └── api.php  ← Definisi semua endpoint API
+```
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🗄️ Struktur Database
 
-## License
+### Tabel `customers`
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id | bigint | Primary Key |
+| name | varchar | Nama pelanggan |
+| address | text | Alamat |
+| phone | varchar | No. telepon |
+| email | varchar | Email (unique) |
+| created_at | timestamp | - |
+| updated_at | timestamp | - |
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### Tabel `packages`
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id | bigint | Primary Key |
+| name | varchar | Nama paket |
+| bandwidth | integer | Kecepatan (Mbps) |
+| price | decimal | Harga per bulan |
+| description | text | Keterangan paket |
+| created_at | timestamp | - |
+| updated_at | timestamp | - |
+
+### Tabel `bills`
+| Kolom | Tipe | Keterangan |
+|-------|------|------------|
+| id | bigint | Primary Key |
+| customer_id | bigint | FK → customers |
+| package_id | bigint | FK → packages |
+| month | integer | Bulan tagihan |
+| year | integer | Tahun tagihan |
+| amount | decimal | Jumlah tagihan |
+| status | enum | paid / unpaid |
+| due_date | date | Tanggal jatuh tempo |
+| paid_date | date | Tanggal bayar (nullable) |
+| created_at | timestamp | - |
+| updated_at | timestamp | - |
+
+---
+
+## 🔗 Daftar Endpoint API
+
+Base URL: `http://127.0.0.1:8000`
+
+### 👥 Pelanggan (Customers)
+| Method | Endpoint | Fungsi |
+|--------|----------|--------|
+| GET | `/api/customers` | Lihat semua pelanggan |
+| POST | `/api/customers` | Tambah pelanggan baru |
+| GET | `/api/customers/{id}` | Lihat detail pelanggan |
+| PUT | `/api/customers/{id}` | Update data pelanggan |
+| DELETE | `/api/customers/{id}` | Hapus pelanggan |
+
+### 📦 Paket Internet (Packages)
+| Method | Endpoint | Fungsi |
+|--------|----------|--------|
+| GET | `/api/packages` | Lihat semua paket |
+| POST | `/api/packages` | Tambah paket baru |
+| GET | `/api/packages/{id}` | Lihat detail paket |
+| PUT | `/api/packages/{id}` | Update paket |
+| DELETE | `/api/packages/{id}` | Hapus paket |
+
+### 🧾 Tagihan (Bills)
+| Method | Endpoint | Fungsi |
+|--------|----------|--------|
+| GET | `/api/bills` | Lihat semua tagihan |
+| POST | `/api/bills` | Tambah tagihan baru |
+| GET | `/api/bills/{id}` | Lihat detail tagihan |
+| PUT | `/api/bills/{id}` | Update tagihan |
+| DELETE | `/api/bills/{id}` | Hapus tagihan |
+
+---
+
+## 📊 Contoh Response API
+
+### GET /api/customers
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "name": "Romi",
+            "address": "Jl. Mawar No. 1, Jombang",
+            "phone": "081234567891",
+            "email": "romi@gmail.com"
+        }
+    ]
+}
+```
+
+### GET /api/bills
+```json
+{
+    "success": true,
+    "data": [
+        {
+            "id": 1,
+            "month": 6,
+            "year": 2026,
+            "amount": "100000.00",
+            "status": "paid",
+            "due_date": "2026-06-10",
+            "customer": {
+                "id": 1,
+                "name": "Romi"
+            },
+            "package": {
+                "id": 1,
+                "name": "Paket Basic",
+                "bandwidth": 10
+            }
+        }
+    ]
+}
+```
+
+---
+
+## 🚀 Cara Instalasi & Menjalankan
+
+```bash
+# 1. Clone repository
+git clone https://github.com/hdmax25/tagihan-internet.git
+
+# 2. Masuk folder project
+cd tagihan-internet
+
+# 3. Install dependencies
+composer install
+
+# 4. Copy file environment
+cp .env.example .env
+
+# 5. Generate application key
+php artisan key:generate
+
+# 6. Konfigurasi database di file .env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tagihan_internet
+DB_USERNAME=root
+DB_PASSWORD=
+
+# 7. Jalankan migration
+php artisan migrate
+
+# 8. Jalankan seeder (data dummy)
+php artisan db:seed
+
+# 9. Jalankan server
+php artisan serve
+```
+
+Akses API di: `http://127.0.0.1:8000/api/`
+
+---
+
+## 📝 Arsitektur MVC
+
+```
+Request → Route (api.php)
+        → Controller (logika bisnis)
+        → Model (interaksi database)
+        → Response JSON
+```
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dibuat untuk keperluan UTS Mata Kuliah Pemrograman Web Fullstack.
