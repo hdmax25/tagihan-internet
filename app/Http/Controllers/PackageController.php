@@ -10,90 +10,40 @@ class PackageController extends Controller
     public function index()
     {
         $packages = Package::all();
-        return response()->json([
-            'success' => true,
-            'data' => $packages
-        ]);
+        return response()->json(['success' => true, 'data' => $packages]);
     }
 
     public function store(Request $request)
     {
         $request->validate([
-            'name'        => 'required|string|max:255',
-            'bandwidth'   => 'required|integer',
-            'price'       => 'required|numeric',
-            'description' => 'nullable|string',
+            'name'      => 'required|string|max:255',
+            'bandwidth' => 'required|integer',
+            'price'     => 'required|numeric',
         ]);
-
         $package = Package::create($request->all());
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Paket berhasil ditambahkan',
-            'data'    => $package
-        ], 201);
+        return response()->json(['success' => true, 'message' => 'Paket berhasil ditambahkan', 'data' => $package], 201);
     }
 
     public function show($id)
     {
         $package = Package::find($id);
-
-        if (!$package) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Paket tidak ditemukan'
-            ], 404);
-        }
-
-        return response()->json([
-            'success' => true,
-            'data'    => $package
-        ]);
+        if (!$package) return response()->json(['success' => false, 'message' => 'Tidak ditemukan'], 404);
+        return response()->json(['success' => true, 'data' => $package]);
     }
 
     public function update(Request $request, $id)
     {
         $package = Package::find($id);
-
-        if (!$package) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Paket tidak ditemukan'
-            ], 404);
-        }
-
-        $request->validate([
-            'name'        => 'string|max:255',
-            'bandwidth'   => 'integer',
-            'price'       => 'numeric',
-            'description' => 'nullable|string',
-        ]);
-
+        if (!$package) return response()->json(['success' => false, 'message' => 'Tidak ditemukan'], 404);
         $package->update($request->all());
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Paket berhasil diupdate',
-            'data'    => $package
-        ]);
+        return response()->json(['success' => true, 'message' => 'Berhasil diupdate', 'data' => $package]);
     }
 
     public function destroy($id)
     {
         $package = Package::find($id);
-
-        if (!$package) {
-            return response()->json([
-                'success' => false,
-                'message' => 'Paket tidak ditemukan'
-            ], 404);
-        }
-
+        if (!$package) return response()->json(['success' => false, 'message' => 'Tidak ditemukan'], 404);
         $package->delete();
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Paket berhasil dihapus'
-        ]);
+        return response()->json(['success' => true, 'message' => 'Berhasil dihapus']);
     }
 }
