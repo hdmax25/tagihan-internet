@@ -5,6 +5,10 @@
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
+- ✅ **Dashboard Web** — Tampilan statistik pelanggan, paket, dan tagihan
+- ✅ **Tampilan UI Modern** — Bootstrap 5 dengan sidebar navigasi
+- ✅ **Form CRUD Web** — Tambah, edit, hapus data langsung dari browser
+
 ## 👨‍💻 Identitas Developer
 
 | Field | Detail |
@@ -238,6 +242,13 @@ php artisan db:seed
 # 9. Jalankan server
 php artisan serve
 ```
+# 10. Akses tampilan web
+http://127.0.0.1:8000
+
+# 11. Akses API
+http://127.0.0.1:8000/api/customers
+http://127.0.0.1:8000/api/packages
+http://127.0.0.1:8000/api/bills
 
 Akses API di: `http://127.0.0.1:8000/api/`
 
