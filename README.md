@@ -268,3 +268,29 @@ Request → Route (api.php)
 ## 📄 Lisensi
 
 Proyek ini dibuat untuk keperluan UTS Mata Kuliah Pemrograman Web Fullstack.
+
+## 📸 Screenshot Aplikasi
+
+### 🏠 Dashboard
+![Dashboard](public/screenshots/dashboard.png)
+
+### 👥 Halaman Pelanggan
+![Customers](public/screenshots/customers.png)
+
+### 📦 Halaman Paket Internet
+![Packages](public/screenshots/packages.png)
+
+### 🧾 Halaman Tagihan
+![Bills](public/screenshots/bills.png)
+
+### 🔌 API Response - Customers
+![API Customers](public/screenshots/api-customers.png)
+
+### 🔌 API Response - Packages
+![API Packages](public/screenshots/api-packages.png)
+
+### 🔌 API Response - Bills
+![API Bills](public/screenshots/api-bills.png)
+
+### 🗄️ Database (phpMyAdmin)
+![Database](public/screenshots/database.png)
